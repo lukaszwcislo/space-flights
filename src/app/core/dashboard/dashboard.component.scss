@@ -1,0 +1,29 @@
+.navbar {
+  &__logged-user-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logout-icon {
+    font-size: 35px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+
+  &__user-login {
+    font-size: 15px;
+    padding-right: 15px;
+  }
+  &__logo {
+    color: #06baff;
+  }
+}
+
+.logo {
+  max-width: 50px;
+  // background: white;
+  cursor: pointer;
+  padding: 4px;
+  // border-radius: 25px;
+}

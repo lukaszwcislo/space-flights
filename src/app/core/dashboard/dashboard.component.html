@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <div class="container navbar">
+    <div class="navbar__logo">
+      <img src="./assets/images/rocket_flights_logo.png" alt="" class="logo" routerLink="/dashboard">
+      rocket flights
+    </div>
+    <div class="navbar__logged-user-info">
+      <span class="navbar__user-login">Hello, John Doe</span>
+      <mat-icon class="navbar__logout-icon">power_settings_new</mat-icon>
+    </div>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
