@@ -1,5 +1,5 @@
-<pre>
-  <code>
-    {{ test | json }}
-  </code>
-</pre>
+<div *ngIf="(flights$ | async) as flights" class="row flights-container pt-5 mt-5">
+  <div class="col-sm-6 col-md-6 col-lg-4" *ngFor="let flight of flights">
+    <app-flight-card [flight]="flight"></app-flight-card>
+  </div>
+</div>

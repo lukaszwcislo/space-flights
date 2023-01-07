@@ -13,13 +13,7 @@ export class FlightsService {
 
   constructor(
     private db: AngularFireDatabase,
-    private http: HttpClient) { 
-      this.http.get('https://api.github.com/users/lukaszwcislo')
-        .subscribe(data=>{
-          console.log('Gitgub user:', data);
-          
-        })
-    }
+    private http: HttpClient) {}
 
   public getFlights(): Observable<Flight[]> {
     return this.db.list<Flight[]>(this.API_URL).snapshotChanges()

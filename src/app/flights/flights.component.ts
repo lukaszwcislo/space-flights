@@ -1,24 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FlightsService } from '../core/services/flights.service';
+import { Flight } from '../models/flight.model';
 
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.scss']
 })
-export class FlightsComponent implements OnInit {
+export class FlightsComponent {
 
-  constructor(private flightsService: FlightsService  ) {
-  }
+  constructor(private flightsService: FlightsService  ) {}
 
-  test: any;
-
-  ngOnInit(): void {
-    this.flightsService.getFlights()
-      .subscribe(flights =>{
-        console.log('flights', flights);
-        this.test = flights;
-      })
-  }
-
+  public flights$: Observable<Flight[]> = this.flightsService.getFlights();
 }
