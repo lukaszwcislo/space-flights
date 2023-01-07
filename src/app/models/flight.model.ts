@@ -6,7 +6,7 @@ export interface Flight {
     destination: string;
     origin: string;
     returnTime: string;
-    withSKPlanesDiscount: boolean;
+    withRocketDiscount: boolean;
     key: string;
 }
 

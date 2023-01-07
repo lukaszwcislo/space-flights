@@ -1,5 +1,11 @@
 :host {
   cursor: pointer;
+
+  &:hover {
+    .card-icon {
+      transform: rotate(45deg);
+    }
+  }
 }
 
 .card-container {
@@ -31,9 +37,12 @@
   border-radius: 50%;
   z-index: 10;
   transform: translateX(-50%);
+  transition: transform .4s;
+
 
   .card-icon {
     max-width: 75px;
+    transition: transform .4s;
   }
 
   mat-icon {
