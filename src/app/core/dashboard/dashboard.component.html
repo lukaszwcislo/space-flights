@@ -7,6 +7,14 @@
     <div class="navbar__logged-user-info">
       <span class="navbar__user-login">Hello, John Doe</span>
       <mat-icon class="navbar__logout-icon">power_settings_new</mat-icon>
+      <button (click)="changeAppTheme()" mat-fab color="white" id="change-theme-btn">
+        <ng-container *ngIf="isSetDarkMode; else darkmodeBtn">
+          <mat-icon class="navbar__logout-icon">light_mode</mat-icon>
+        </ng-container>
+        <ng-template #darkmodeBtn>
+          <mat-icon class="navbar__logout-icon">dark_mode</mat-icon>
+        </ng-template>
+      </button>
     </div>
   </div>
 </mat-toolbar>
