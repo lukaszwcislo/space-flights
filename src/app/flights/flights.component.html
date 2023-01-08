@@ -1,4 +1,4 @@
-<div *ngIf="(flights$ | async) as flights" class="row flights-container pt-5 mt-5">
+<div *ngIf="(flights$ | async) as flights" class="row flights-container pt-2 mt-2 pt-sm-5 mt-sm-5">
   <div class="col-sm-6 col-md-6 col-lg-4" *ngFor="let flight of flights">
     <app-flight-card [flight]="flight"></app-flight-card>
   </div>
