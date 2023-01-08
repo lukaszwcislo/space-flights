@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Crew } from 'src/app/models/flight.model';
 
 @Component({
@@ -23,14 +23,14 @@ export class FlightFormComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      origin: '',
-      destination: '',
-      departerTime: '',
-      returnTime: '',
-      code: '',
+      origin: ['', { validators: Validators.required }],
+      destination: ['', { validators: Validators.required }],
+      departerTime: ['', { validators: Validators.required }],
+      returnTime: ['', { validators: Validators.required }],
+      code: ['RF', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(7)] }],
       additionalInformatin: '',
       withRocketDiscount: false,
-      crew: this.formBuilder.array([this.buildCrewMember(), this.buildCrewMember(), this.buildCrewMember()])
+      crew: this.formBuilder.array([this.buildCrewMember()])
     })
   }
 
