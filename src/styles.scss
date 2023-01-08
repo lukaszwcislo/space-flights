@@ -14,8 +14,33 @@ body {
     background: #020024;
     background: linear-gradient(15deg, #090979, #03003e, #03003e);
     background: linear-gradient(15deg, #890096, #2700a9, #090979);
-
-    
   }
 }
 
+.toast {
+  &--success {
+    --mdc-snackbar-container-color: #14b214;
+    --mdc-snackbar-supporting-text-color: #fff;
+    text-align: center;
+    --mdc-snackbar-supporting-text-size: 18px;
+    padding: 20px;
+    --mdc-snackbar-supporting-text-weight: 300;
+
+    simple-snack-bar{
+      padding: 20px;
+    }
+  }
+
+  &--error {
+    --mdc-snackbar-container-color: #e26161;
+    --mdc-snackbar-supporting-text-color: #fff;
+    text-align: center;
+    --mdc-snackbar-supporting-text-size: 18px;
+    padding: 20px;
+    --mdc-snackbar-supporting-text-weight: 300;
+
+    simple-snack-bar{
+      padding: 20px;
+    }
+  }
+}

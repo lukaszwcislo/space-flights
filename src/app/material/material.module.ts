@@ -11,7 +11,7 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
 const MAT_SNACK_BAR_GLOBAL_CONFIG: MatSnackBarConfig = {
-  duration: 2500,
+  duration: 3000,
   verticalPosition: 'bottom',
   horizontalPosition: 'center'
 };
@@ -39,8 +39,8 @@ const MATERIAL_MODULES = [
   exports: [...MATERIAL_MODULES],
   declarations: [],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: MAT_DIALOG_GLOBAL_CONFIG},
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: MAT_SNACK_BAR_GLOBAL_CONFIG}
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: MAT_DIALOG_GLOBAL_CONFIG },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: MAT_SNACK_BAR_GLOBAL_CONFIG }
   ]
 })
 export class MaterialModule {}
