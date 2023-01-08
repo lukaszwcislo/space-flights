@@ -7,3 +7,9 @@
   margin-bottom: 20px;
   font-weight: bold;
 }
+
+.remove-member-btn {
+  &:hover {
+    cursor: pointer;
+  }
+}

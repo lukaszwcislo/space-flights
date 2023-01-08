@@ -1,42 +1,50 @@
 <form [formGroup]="form">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-8 mb-2">
       <mat-form-field color="accent">
         <mat-label>Code</mat-label>
-        <input matInput formControlName="code">
+        <input matInput formControlName="code" #codeInput>
+        <mat-error *ngIf="form.get('code')?.hasError('required')">Code is required</mat-error>
+        <mat-error *ngIf="form.get('code')?.hasError('minlength')">Minimum length is 3 chars</mat-error>
+        <mat-error *ngIf="form.get('code')?.hasError('maxlength')">Maximum length is 7 chars</mat-error>
+        <mat-hint align="end">{{ codeInput.value.length }} / 7</mat-hint>
       </mat-form-field>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-2">
       <mat-form-field color="accent">
         <mat-label>Origin</mat-label>
         <input matInput formControlName="origin">
+        <mat-error *ngIf="form.get('origin')?.hasError('required')">Origin is required</mat-error>
       </mat-form-field>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-2">
       <mat-form-field color="accent">
         <mat-label>Destination</mat-label>
         <input matInput formControlName="destination">
+        <mat-error *ngIf="form.get('destination')?.hasError('required')">Destination is required</mat-error>
       </mat-form-field>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-2">
       <mat-form-field color="accent">
         <mat-label>Departer time</mat-label>
         <input matInput formControlName="departerTime">
+        <mat-error *ngIf="form.get('departerTime')?.hasError('required')">Departer time is required</mat-error>
       </mat-form-field>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-2">
       <mat-form-field color="accent">
         <mat-label>Return time</mat-label>
         <input matInput formControlName="returnTime">
+        <mat-error *ngIf="form.get('returnTime')?.hasError('required')">Return time is required</mat-error>
       </mat-form-field>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-8 mb-2">
       <mat-form-field color="accent">
         <mat-label>Addictional information</mat-label>
         <textarea matInput formControlName="additionalInformatin"></textarea>
@@ -45,14 +53,14 @@
   </div>
   <div class="row">
     <div class="col">
-      <mat-checkbox color="accent" formControlName="withRocketDiscount">With discount</mat-checkbox>
+      <mat-checkbox color="accent" formControlName="withRocketDiscount">With rocket discount</mat-checkbox>
     </div>
   </div>
-  <div formArrayName="crew" class="crew-container shadow" *ngFor="let crewMember of crew.controls;index as index">
+  <div formArrayName="crew" class="crew-container shadow mb-3" *ngFor="let crewMember of crew.controls;index as index">
     <div class="row crew-header">
-      <div class="col">
+      <div class="col d-flex justify-content-between">
         <span>Crew Member - {{ index + 1 }}</span>
-        <mat-icon class="float-right" (click)="removeCrewMember(index)">delete_forever</mat-icon>
+        <mat-icon class="remove-member-btn" (click)="removeCrewMember(index)">delete_forever</mat-icon>
       </div>
     </div>
     <div class="row" [formGroupName]="index">
