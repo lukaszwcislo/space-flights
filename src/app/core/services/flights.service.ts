@@ -25,4 +25,8 @@ export class FlightsService {
   private assignKey(flight: any) {
     return {...flight.payload.val(), key: flight.key}
   }
+
+  public addFlight(flight: Flight): Promise<any> {
+    return Promise.resolve(this.db.list<Flight>(this.API_URL).push(flight));
+  }
 }
