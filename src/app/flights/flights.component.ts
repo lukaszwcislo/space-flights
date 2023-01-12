@@ -4,6 +4,7 @@ import { FlightsService } from '../core/services/flights.service';
 import { Flight } from '../models/flight.model';
 import { MatDialog } from '@angular/material/dialog';
 import { NewFlightComponent } from './new-flight/new-flight.component';
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
 
 @Component({
   selector: 'app-flights',
@@ -21,5 +22,9 @@ export class FlightsComponent {
 
   public openNewFlightModal() {
     this.dialog.open(NewFlightComponent);
+  }
+
+  public showDetails(flight: any) {
+    this.dialog.open(FlightDetailsComponent, { data: flight })
   }
 }

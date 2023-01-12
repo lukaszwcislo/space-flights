@@ -20,7 +20,8 @@ export class NewFlightComponent {
 
   public createFlight() {
     this.flightsService.addFlight(this.flightForm.form.value)
-      .then(this.onCreatingSuccess.bind(this), this.onCreatingFailure.bind(this))
+      .then(this.onCreatingSuccess.bind(this))
+      .catch(this.onCreatingFailure.bind(this))
   }
 
   private onCreatingSuccess() {

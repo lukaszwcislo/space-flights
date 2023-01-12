@@ -17,6 +17,9 @@
   }
   &__logo {
     color: #06baff;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   #change-theme-btn {
@@ -60,6 +63,7 @@
 .container {
   &--main {
     min-height: 100vh;
+    padding-bottom: 50px;
     @media(min-width: 576px) {
       max-width: 575px;
     }

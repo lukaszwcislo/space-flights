@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Crew } from 'src/app/models/flight.model';
+import { Crew, Flight } from 'src/app/models/flight.model';
 
 @Component({
   selector: 'app-flight-form',
@@ -8,6 +8,8 @@ import { Crew } from 'src/app/models/flight.model';
   styleUrls: ['./flight-form.component.scss']
 })
 export class FlightFormComponent implements OnInit {
+
+  @Input() editMode = false;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -25,24 +27,24 @@ export class FlightFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       origin: ['', { validators: Validators.required }],
       destination: ['', { validators: Validators.required }],
-      departerTime: ['', { validators: Validators.required }],
+      departureTime: ['', { validators: Validators.required }],
       returnTime: ['', { validators: Validators.required }],
       code: ['RF', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(7)] }],
       additionalInformatin: '',
       withRocketDiscount: false,
-      crew: this.formBuilder.array([this.buildCrewMember()])
+      crew: this.formBuilder.array(this.editMode ? [] : [this.buildCrewMember()])
     })
   }
 
-  public buildCrewMember() {
+  public buildCrewMember(crewMember: Crew = {} as Crew) {
     return this.formBuilder.group({
-      name: '',
-      job: ''
+      name: crewMember.name || '',
+      job: crewMember.job || ''
     })
   }
 
-  public addCrewMember() {
-    this.crew.push(this.buildCrewMember())
+  public addCrewMember(crewMember?: Crew) {
+    this.crew.push(this.buildCrewMember(crewMember))
   }
 
   get crew() {
@@ -51,6 +53,14 @@ export class FlightFormComponent implements OnInit {
 
   public removeCrewMember(index: number) {
     this.crew.removeAt(index);
+  }
+
+  public setFlight(flight: Flight) {
+    const {key, ...formData} = flight;
+    console.log('...formData',{...formData});
+    
+    this.form.patchValue(formData);
+    formData.crew.forEach(crewMember => this.addCrewMember(crewMember))
   }
 
   ngOnInit(): void {

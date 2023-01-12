@@ -7,13 +7,17 @@ import { NewFlightComponent } from './new-flight/new-flight.component';
 import { FlightFormComponent } from './flight-form/flight-form.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
+import { EditFlightComponent } from './edit-flight/edit-flight.component';
 
 @NgModule({
   declarations: [
     FlightsComponent,
     FlightCardComponent,
     NewFlightComponent,
-    FlightFormComponent
+    FlightFormComponent,
+    FlightDetailsComponent,
+    EditFlightComponent
   ],
   imports: [
     CommonModule,

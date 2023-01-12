@@ -30,9 +30,9 @@
   <div class="row">
     <div class="col-sm-4 mb-2">
       <mat-form-field color="accent">
-        <mat-label>Departer time</mat-label>
-        <input matInput formControlName="departerTime">
-        <mat-error *ngIf="form.get('departerTime')?.hasError('required')">Departer time is required</mat-error>
+        <mat-label>Departure time</mat-label>
+        <input matInput formControlName="departureTime">
+        <mat-error *ngIf="form.get('departureTime')?.hasError('required')">departure time is required</mat-error>
       </mat-form-field>
     </div>
     <div class="col-sm-4 mb-2">
@@ -84,4 +84,4 @@
     </div>
   </div>
 </form>
-<pre>{{ form.value | json }}</pre>
+<!-- <pre>{{ form.value | json }}</pre>  -->

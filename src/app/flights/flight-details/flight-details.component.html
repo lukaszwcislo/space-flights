@@ -1,0 +1,24 @@
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between">
+        <h3 class="title--section">
+          FLIGHT DETAILS
+        </h3>
+        <mat-icon class="float-right close-btn" (click)="closeModal()">close</mat-icon>
+      </div>
+      <p class="label">Code: {{ flight.code }}</p>
+      <p class="label">Crew:</p>
+      <ul>
+        <li *ngFor="let member of flight.crew">
+          {{ member.name }}
+        </li>
+      </ul>
+      <div class="d-flex justify-content-end">
+        <button mat-raised-button color="primary" (click)="goToEditFlight()">
+          EDIT FLIGHT
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

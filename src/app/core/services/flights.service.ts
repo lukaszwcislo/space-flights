@@ -29,4 +29,20 @@ export class FlightsService {
   public addFlight(flight: Flight): Promise<any> {
     return Promise.resolve(this.db.list<Flight>(this.API_URL).push(flight));
   }
+
+  public removeFlight(key: string) {
+    return this.db.object<Flight>(`${this.API_URL}/${key}`).remove();
+  }
+
+  public getFlight(key: string) : Observable<Flight> {
+    return this.db.object<Flight>(`${this.API_URL}/${key}`)
+      .snapshotChanges()
+      .pipe(
+        map(flight => this.assignKey(flight))
+      )
+  }
+
+  public editFlight(key: string, flight: Flight) {
+   return this.db.object<Flight>(`${this.API_URL}/${key}`).update(flight);
+  }
 }
