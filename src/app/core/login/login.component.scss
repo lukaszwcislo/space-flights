@@ -1,0 +1,52 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  margin: auto;
+
+  &__text {
+    margin: 12px 0 0;
+  }
+}
+
+.login-content {
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+
+  p {
+    padding: 20px;
+  }
+}
+
+.logo {
+  margin: 0 auto;
+  max-width: 35px;
+  &-wrapper {
+    color: #06baff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+}
+
+::ng-deep { 
+  mat-form-field {
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+      color: black;
+    }
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+      background-color: #ffffff;
+    }
+    .mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before {
+      border-bottom-color: #4d4d4d;
+    }
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+      border-bottom-color: #4d4d4d;
+    }
+  }
+}
