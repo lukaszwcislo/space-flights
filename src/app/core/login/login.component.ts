@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +9,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+  public credentials = {
+    email: '',
+    password: ''
+  }
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toasts: MatSnackBar
+  ) {
+
+  }
+
+  public login() {
+    this.authService.login(this.credentials)
+      .then((user) => this.router.navigate(['/dashboard']))
+      .catch((error) => this.toasts.open(error.message))
+  }
 
 }
