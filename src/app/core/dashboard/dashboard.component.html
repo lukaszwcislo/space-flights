@@ -13,8 +13,8 @@
           <mat-icon class="navbar__logout-icon">dark_mode</mat-icon>
         </ng-template>
       </button>
-      <span class="navbar__user-login">Hello, John Doe</span>
-      <mat-icon class="navbar__logout-icon">power_settings_new</mat-icon>
+      <span class="navbar__user-login">Hello, {{ user.email }}</span>
+      <mat-icon class="navbar__logout-icon" (click)="logout()">power_settings_new</mat-icon>
     </div>
   </div>
 </mat-toolbar>

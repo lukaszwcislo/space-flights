@@ -29,4 +29,10 @@ export class LoginComponent {
       .catch((error) => this.toasts.open(error.message))
   }
 
+  public register() {
+      this.authService.register(this.credentials)
+      .then((user) => this.toasts.open('Account created, plese log in', '', {panelClass: 'toast--success'}))
+      .catch((error) => this.toasts.open(error.message, '', {panelClass: 'toast--error'}))
+  }
+
 }

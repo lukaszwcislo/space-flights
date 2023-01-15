@@ -57,7 +57,6 @@ export class FlightFormComponent implements OnInit {
 
   public setFlight(flight: Flight) {
     const {key, ...formData} = flight;
-    console.log('...formData',{...formData});
     
     this.form.patchValue(formData);
     formData.crew.forEach(crewMember => this.addCrewMember(crewMember))

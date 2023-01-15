@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,8 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  public user = this.authService.user;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   public isSetDarkMode!: boolean;
+
+  public logout() {
+    this.authService.logout()
+      .then(() => {
+        this.router.navigate(['/login'])
+      })
+  }
 
   public changeAppTheme() {
     const body = document.body;

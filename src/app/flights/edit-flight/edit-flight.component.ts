@@ -30,10 +30,8 @@ export class EditFlightComponent implements AfterViewInit{
         tap(flight => this.flightForm.setFlight(flight))
       )
       .subscribe(flight => {
-        console.log('f',flight);
-        this.flight = flight
-        
-      } )
+        this.flight = flight 
+      })
   }
 
   public editFlight() {

@@ -6,7 +6,7 @@
       rocket flights
     </div>
 
-    <h3 class="login-title">Login</h3>
+    <h3 class="login-title">Login or register</h3>
     <mat-form-field class="d-block">
       <input matInput placeholder="Email" required [(ngModel)]="credentials.email">
       <mat-error>Email is required</mat-error>
@@ -17,7 +17,7 @@
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="login()">LOG IN</button>
     <p class="login-container__text">You don't have an account?</p>
-    <button routerLink="/registration" mat-raised-button color="accent">REGISTER</button>
+    <button routerLink="/registration" mat-raised-button color="accent" (click)="register()">REGISTER</button>
   </div>
 </div>
 <!-- </div> -->
