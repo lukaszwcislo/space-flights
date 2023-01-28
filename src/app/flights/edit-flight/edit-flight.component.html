@@ -4,14 +4,28 @@
       <h3 class="title--section">Edit flight {{ flight && flight.code }} details</h3>
     </div>
     <div class="col-3 edit-flight__remove-flight">
-      <mat-icon (click)="removeFlight()" id="remove-btn">delete_forever</mat-icon>
+      <mat-icon (click)="openModalToRemoveFlight()" id="remove-btn">delete_forever</mat-icon>
     </div>
   </div>
   <app-flight-form [editMode]="true" #flightForm></app-flight-form>
   <div class="row">
     <div class="col text-right">
-      <button mat-raised-button>RESET</button>
+      <button mat-raised-button class="edit-flight__reset-btn">RESET</button>
       <button mat-raised-button color="primary" (click)="editFlight()">SAVE</button>
     </div>
   </div>
 </div>
+<ng-template #confirmDeletion>
+  <mat-dialog-content>
+    <h2 mat-dialog-title>Are you sure you want to delete this flight?</h2>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <div class="row">
+      <div class="col">
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button color="accent" mat-dialog-close (click)="removeFlight()">Yes, delete this
+          flight</button>
+      </div>
+    </div>
+  </mat-dialog-actions>
+</ng-template>

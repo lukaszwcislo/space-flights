@@ -1,6 +1,12 @@
-<div *ngIf="(flights$ | async) as flights" class="row flights-container pt-2 mt-2 pt-sm-5 mt-sm-5">
+<div *ngIf="(flights$ | async) as flights; else loadingSpinner" class="row flights-container pt-2 mt-2 pt-sm-5 mt-sm-5">
   <div class="col-sm-6 col-md-6 col-lg-4" *ngFor="let flight of flights" (click)="showDetails(flight)">
     <app-flight-card [flight]="flight"></app-flight-card>
   </div>
 </div>
+<ng-template #loadingSpinner>
+  <div class="loading-spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+</ng-template>
 <button (click)="openNewFlightModal()" mat-fab color="accent" id="new-flight-btn">+</button>

@@ -13,14 +13,27 @@ export class AuthGuard implements CanActivate {
     private router: Router,
     private toast: MatSnackBar
   ) {
+    this.checkIfUserLogged()
+  }
 
+  public checkIfUserLogged(): boolean {
+    if (localStorage.hasOwnProperty('loggedUser')) {
+      if( localStorage["loggedUser"]) {
+        const uid = JSON.parse(localStorage["loggedUser"]).uid;
+        if (uid) {
+          return true
+        }
+      }
+    }
+
+    return false
   }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
-      if(this.authService.isLoggedIn()) {
+      if(this.authService.isLoggedIn() || this.checkIfUserLogged()) {
         return true;
       }
 

@@ -1,10 +1,11 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { FlightsService } from 'src/app/core/services/flights.service';
 import { Flight } from 'src/app/models/flight.model';
 import { FlightFormComponent } from '../flight-form/flight-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-flight',
@@ -13,12 +14,14 @@ import { FlightFormComponent } from '../flight-form/flight-form.component';
 })
 export class EditFlightComponent implements AfterViewInit{
   @ViewChild('flightForm') flightForm!: FlightFormComponent;
+  @ViewChild('confirmDeletion') confirmDeletion!: any;
 
   constructor(
     private flightsService: FlightsService,
     private route: ActivatedRoute,
     private toasts: MatSnackBar,
-    private router: Router) {
+    private router: Router,
+    private dialog: MatDialog) {
   }
 
   public flight!: Flight;
@@ -69,6 +72,12 @@ export class EditFlightComponent implements AfterViewInit{
   public removeFlight() {
     this.flightsService.removeFlight(this.flight.key)
       .then(this.onRemoveSuccess.bind(this), this.onFailure.bind(this))
+  }
+
+  openModalToRemoveFlight() {
+    this.dialog.open(this.confirmDeletion, {
+      disableClose: false
+    });
   }
 
   ngAfterViewInit(): void {

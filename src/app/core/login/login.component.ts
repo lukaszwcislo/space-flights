@@ -25,7 +25,10 @@ export class LoginComponent {
 
   public login() {
     this.authService.login(this.credentials)
-      .then((user) => this.router.navigate(['/dashboard']))
+      .then((user) => {
+        
+        this.router.navigate(['/dashboard'])}
+        )
       .catch((error) => this.toasts.open(error.message))
   }
 

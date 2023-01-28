@@ -13,7 +13,11 @@
           <mat-icon class="navbar__logout-icon">dark_mode</mat-icon>
         </ng-template>
       </button>
-      <span class="navbar__user-login">Hello, {{ user.email }}</span>
+      <span class="navbar__user-login">
+        <mat-spinner *ngIf="!user" color="accent" diameter="25">
+        </mat-spinner>
+        {{ user && 'Hello, ' + user.email }}
+      </span>
       <mat-icon class="navbar__logout-icon" (click)="logout()">power_settings_new</mat-icon>
     </div>
   </div>

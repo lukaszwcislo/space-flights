@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { UserInfo } from "@angular/fire/auth";
+import { Router } from "@angular/router";
+import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +10,28 @@ import { UserInfo } from "@angular/fire/auth";
 
 export class AuthService {
   constructor(
-    private fireAuth: AngularFireAuth
-  ) {}
+    public fireAuth: AngularFireAuth,
+    private router: Router
+  ) {
+    this.fireAuth.authState.subscribe((user) => {
+      if (user) {
+        localStorage.setItem('loggedUser', JSON.stringify(user));
+        this.userData = user;
+        this.updateUserData$.next(user)
+      } else {
+        localStorage.setItem('loggedUser', '');
+      }
+    });
+  }
 
-  private userData!: UserInfo;
+  public userData!: UserInfo;
+  public updateUserData$ : Subject<any> = new Subject();
 
-  public login(credentials: {email: string, password: string} ) {
+  public async login(credentials: {email: string, password: string} ) {
     return this.fireAuth.signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then((userCredential: any) => this.userData = userCredential.user)
+      .then((userCredential: any) => {
+        return this.userData = userCredential.user
+      })
   }
 
   public register(credentials: {email: string, password: string} ) {

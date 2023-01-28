@@ -15,6 +15,10 @@
     }
   }
 
+  &__reset-btn {
+    margin-right: 5px;
+  }
+
   ::ng-deep {
     form {
       border-radius: 10px;
@@ -97,8 +101,7 @@
         .mat-mdc-form-field.mat-accent .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
           border-bottom-color: #f44336;
         }
-        
-       
+
         .crew-container {
           background: #00000029;
         }

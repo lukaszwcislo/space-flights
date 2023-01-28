@@ -12,7 +12,7 @@
       <mat-error>Email is required</mat-error>
     </mat-form-field>
     <mat-form-field class="d-block">
-      <input matInput placeholder="Password" required [(ngModel)]="credentials.password">
+      <input matInput type="password" placeholder="Password" required [(ngModel)]="credentials.password">
       <mat-error>Password is required</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="login()">LOG IN</button>

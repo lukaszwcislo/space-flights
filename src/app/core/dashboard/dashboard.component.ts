@@ -13,7 +13,9 @@ export class DashboardComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+   
+  }
 
   public isSetDarkMode!: boolean;
 
@@ -54,5 +56,10 @@ export class DashboardComponent implements OnInit {
     } else {
       this.isSetDarkMode = false;
     }
+    this.authService.updateUserData$
+      .subscribe(userData => {
+        this.user = userData;
+      })
   }
+  
 }
