@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { UserInfo } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
@@ -9,9 +10,13 @@ import { Subject } from "rxjs";
 })
 
 export class AuthService {
+
+  private API_URL = `/users`;
+
   constructor(
     public fireAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    public db: AngularFireDatabase
   ) {
     this.fireAuth.authState.subscribe((user) => {
       if (user) {
@@ -35,7 +40,7 @@ export class AuthService {
   }
 
   public register(credentials: {email: string, password: string} ) {
-    return this.fireAuth.createUserWithEmailAndPassword(credentials.email, credentials.password)
+    return this.fireAuth.createUserWithEmailAndPassword(credentials.email, credentials.password);
   }
 
   get user() {

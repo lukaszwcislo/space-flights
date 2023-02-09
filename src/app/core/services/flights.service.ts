@@ -3,17 +3,25 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Flight } from 'src/app/models/flight.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlightsService {
 
-  private API_URL = '/flights';
+  private uid!: string;
+  public API_URL = `/users/${localStorage["loggedUser"] ? JSON.parse(localStorage["loggedUser"]).uid : ''}/flights`;
 
   constructor(
     private db: AngularFireDatabase,
-    private http: HttpClient) {}
+    private http: HttpClient,
+    private authService: AuthService) {
+      this.authService.updateUserData$
+        .subscribe(data => {
+          this.uid = data.uid;
+        })
+    }
 
   public getFlights(): Observable<Flight[]> {
     return this.db.list<Flight[]>(this.API_URL).snapshotChanges()

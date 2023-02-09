@@ -1,27 +1,26 @@
-# Rockets
+# ROCKET FLIGHTS
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+
+## 🚀 [Live preview](https://cute-gnome-125164.netlify.app/)
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## About project
 
-## Build
+The app is written in the Angular v15.0.4 framework, using the Firebase database.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Upon entering the main address, a registration/login panel will be displayed.
+You need to create a user account by providing an email and password. The email can be fictitious and is only used for the purpose of presenting the application.
 
-## Running unit tests
+After successfully creating the account, the login information will be in the inputs. You need to click the "Log in" button.
+After successful login, you will be redirected to the dashboard where a list of current flights will be displayed.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The flights were automatically created and saved in the Firebase database when the account was registered. They are only associated with a specific user.
 
-## Running end-to-end tests
+Now you can add, edit, and delete your space rocket flights.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Have fun!

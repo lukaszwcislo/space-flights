@@ -17,6 +17,9 @@
   }
   &__logo {
     color: #06baff;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     &:hover {
       cursor: pointer;
     }
@@ -55,7 +58,7 @@
 }
 
 .logo {
-  max-width: 50px;
+  max-width: 35px;
   cursor: pointer;
   padding: 4px;
 }
