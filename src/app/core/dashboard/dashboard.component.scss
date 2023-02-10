@@ -2,6 +2,35 @@
   &__logged-user-info {
     display: flex;
     align-items: center;
+
+    @media(max-width: 557px) {
+      position: absolute;
+      z-index: 100;
+      top: 65px;
+      background: #7b1ea2;
+      width: 100%;
+      left: 0;
+      padding: 10px 0;
+      justify-content: center;
+      transform: scale(.7);
+      opacity: 0;
+      transition: transform .4s, opacity .4s;
+
+      &.active {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__hamburger-btn {
+    display: none;
+
+    @media(max-width: 557px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__logout-icon {
@@ -20,6 +49,9 @@
     color: #fff;
     letter-spacing: 2px;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+
     &:hover {
       cursor: pointer;
     }

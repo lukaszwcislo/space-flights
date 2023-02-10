@@ -24,13 +24,18 @@
 }
 
 .logo {
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   max-width: 35px;
+
   &-wrapper {
     color: #06baff;
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 

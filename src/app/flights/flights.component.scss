@@ -16,3 +16,29 @@
   justify-content: center;
   align-items: center;
 }
+
+.no-flights-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 100px;
+  left: 0;
+  margin: auto;
+  text-align: center;
+  height: 20px;
+  font-size: 2rem;
+  opacity: .7;
+}
+
+::ng-deep {
+  body {
+    &[data-dark-mode] {
+      .no-flights-info {
+        color: white;
+      }
+    }
+    .no-flights-info {
+      color: rgb(0, 0, 0);
+    }
+  }
+}

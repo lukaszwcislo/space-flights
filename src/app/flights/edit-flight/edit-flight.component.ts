@@ -76,7 +76,8 @@ export class EditFlightComponent implements AfterViewInit{
 
   openModalToRemoveFlight() {
     this.dialog.open(this.confirmDeletion, {
-      disableClose: false
+      disableClose: false,
+      width: 'unset'
     });
   }
 

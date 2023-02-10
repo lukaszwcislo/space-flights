@@ -4,7 +4,7 @@
       <img src="./assets/images/rocket_flights_logo.png" alt="" class="logo" routerLink="/dashboard">
       rocket flights
     </div>
-    <div class="navbar__logged-user-info">
+    <div class="navbar__logged-user-info" #menu>
       <button (click)="changeAppTheme()" mat-fab color="white" id="change-theme-btn">
         <ng-container *ngIf="isSetDarkMode; else darkmodeBtn">
           <mat-icon class="navbar__logout-icon">light_mode</mat-icon>
@@ -20,6 +20,9 @@
       </span>
       <mat-icon class="navbar__logout-icon" (click)="logout()">power_settings_new</mat-icon>
     </div>
+    <button class="navbar__hamburger-btn" (click)="toggleMenu(menu)" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
 </mat-toolbar>
 <div class="container container--main">

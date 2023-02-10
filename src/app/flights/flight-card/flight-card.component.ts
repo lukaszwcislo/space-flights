@@ -7,7 +7,5 @@ import { Flight } from 'src/app/models/flight.model';
   styleUrls: ['./flight-card.component.scss']
 })
 export class FlightCardComponent {
-
   @Input() flight!: Flight;
-
 }

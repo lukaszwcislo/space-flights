@@ -59,7 +59,7 @@ export class FlightFormComponent implements OnInit {
     const {key, ...formData} = flight;
     
     this.form.patchValue(formData);
-    formData.crew.forEach(crewMember => this.addCrewMember(crewMember))
+    formData.crew && formData.crew.forEach(crewMember => this.addCrewMember(crewMember))
   }
 
   ngOnInit(): void {

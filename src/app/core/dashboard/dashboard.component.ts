@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -44,6 +45,10 @@ export class DashboardComponent implements OnInit {
       localStorage.setItem('darkMode', 'true');
       this.isSetDarkMode = true;
     }
+  }
+
+  public toggleMenu(menu: HTMLDivElement) {
+    menu.classList.toggle('active');
   }
 
   ngOnInit(): void {

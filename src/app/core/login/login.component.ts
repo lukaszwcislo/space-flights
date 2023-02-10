@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Flight, DefaultInitialFlightsData } from 'src/app/models/flight.model';
 import { AuthService } from '../services/auth.service';
 import { FlightsService } from '../services/flights.service';
+import { ViewChild } from '@angular/core';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,7 @@ import { FlightsService } from '../services/flights.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  @ViewChild('loginBtn', {read: ElementRef}) loginBtn!: ElementRef<HTMLButtonElement>;
 
   public credentials = {
     email: '',
@@ -44,5 +47,11 @@ export class LoginComponent {
         }); 
       })
       .catch((error) => this.toasts.open(error.message, '', { panelClass: 'toast--error' }))
+  }
+
+  public onKeypress(event: KeyboardEvent) {
+    if(event.key === 'Enter') {
+      this.loginBtn.nativeElement.click();
+    }
   }
 }
