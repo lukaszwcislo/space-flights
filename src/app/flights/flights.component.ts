@@ -16,7 +16,9 @@ export class FlightsComponent {
   constructor(
     private dialog: MatDialog,
     private flightsService: FlightsService
-    ) {}
+    ) {
+      window.scrollTo(0, 0);
+    }
 
   public flights$: Observable<Flight[]> = this.flightsService.getFlights();
 

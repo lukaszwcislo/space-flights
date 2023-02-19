@@ -25,9 +25,7 @@ export class LoginComponent {
     private router: Router,
     private toasts: MatSnackBar,
     private flightsService: FlightsService
-  ) {
-
-  }
+  ) {}
 
   public login() {
     this.authService.login(this.credentials)

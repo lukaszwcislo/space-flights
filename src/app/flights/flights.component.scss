@@ -28,6 +28,10 @@
   height: 20px;
   font-size: 2rem;
   opacity: .7;
+
+  @media(max-width: 557px) {
+    font-size: 1.2rem;
+  }
 }
 
 ::ng-deep {

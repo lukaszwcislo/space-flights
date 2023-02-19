@@ -21,8 +21,7 @@ export class EditFlightComponent implements AfterViewInit{
     private route: ActivatedRoute,
     private toasts: MatSnackBar,
     private router: Router,
-    private dialog: MatDialog) {
-  }
+    private dialog: MatDialog) { }
 
   public flight!: Flight;
 

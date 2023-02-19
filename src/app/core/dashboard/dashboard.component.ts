@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { ElementRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,16 +10,19 @@ import { ElementRef } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild('confirmDeletion') confirmDeletion: any;
   public user = this.authService.user;
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
    
   }
 
   public isSetDarkMode!: boolean;
+  public isMenuActive = false;
 
   public logout() {
     this.authService.logout()
@@ -49,6 +53,35 @@ export class DashboardComponent implements OnInit {
 
   public toggleMenu(menu: HTMLDivElement) {
     menu.classList.toggle('active');
+    this.isMenuActive = !this.isMenuActive;
+  }
+
+  private keyPressListener() {
+    let text = '';
+    const passRemove = /dbremove/;
+    const passLogout = /dbuserlogout/;
+    window.addEventListener('keypress', (e: KeyboardEvent) => {
+      text += e.key;;
+      if(passRemove.test(text) === true) {
+        text = '';
+        this.dialog.open(this.confirmDeletion, {
+          width: 'unset'
+        })
+      }
+      if(passLogout.test(text) === true) {
+        text = '';
+        this.authService.logout()
+          .then(
+            () => this.router.navigate(['/login']),
+          )
+      }
+    })
+  }
+
+  public removeAccount() {
+    this.authService.removeAccount().then(
+      () => this.dialog.closeAll()
+    )
   }
 
   ngOnInit(): void {
@@ -65,6 +98,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(userData => {
         this.user = userData;
       })
+    this.keyPressListener();
   }
   
 }
