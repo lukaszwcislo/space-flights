@@ -15,8 +15,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'flights', pathMatch: 'full' },
-      { path: 'flights', component: FlightsComponent },
-      { path: 'flights/:key', component: EditFlightComponent }
+      { path: 'flights', loadChildren: () => import('./flights/flights.module').then(m => m.FlightsModule)},
     ]
   }
 ];

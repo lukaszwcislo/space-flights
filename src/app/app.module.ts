@@ -28,7 +28,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FlightsModule,
     HttpClientModule
   ],
   providers: [],
