@@ -11,7 +11,6 @@ import { MaterialModule } from './material/material.module';
 import { CoreModule } from './core/core.module';
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { FlightsModule } from './flights/flights.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 

@@ -1,0 +1,50 @@
+.page-not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      font-weight: 300;
+      @media(max-width: 550px) {
+        font-size: 1rem;
+      }
+    }
+    h1, h2, p {
+      text-align: center;
+    }
+
+    .text {
+      &--special {
+        font-size: 150px;
+        background: -webkit-linear-gradient(#a60395, #850297);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 200px;
+        @media(max-width: 550px) {
+          font-size: 100px;
+          line-height: 120px;
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  body {
+    &[data-dark-mode] {
+      .page-not-found  {
+        &__container {
+          h1, p, h2 {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
