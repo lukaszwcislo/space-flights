@@ -1,11 +1,23 @@
 <mat-toolbar color="primary">
   <div class="container navbar">
-    <div class="navbar__logo" routerLink="/dashboard">
-      <img src="./assets/images/rocket_flights_logo.png" alt="" class="logo" routerLink="/dashboard">
-      rocket flights
+    <div 
+      class="navbar__logo" 
+      routerLink="/dashboard">
+      <img 
+        src="./assets/images/rocket_flights_logo.png" 
+        alt="" 
+        class="logo" 
+        routerLink="/dashboard">
+        rocket flights
     </div>
-    <div class="navbar__logged-user-info" #menu>
-      <button (click)="changeAppTheme()" mat-fab color="white" id="change-theme-btn">
+    <div 
+      class="navbar__logged-user-info" 
+      #menu>
+      <button 
+        (click)="changeAppTheme()" 
+        mat-fab 
+        color="white" 
+        id="change-theme-btn">
         <ng-container *ngIf="isSetDarkMode; else darkmodeBtn">
           <mat-icon class="navbar__logout-icon">light_mode</mat-icon>
         </ng-container>
@@ -14,16 +26,31 @@
         </ng-template>
       </button>
       <span class="navbar__user-login">
-        <mat-spinner *ngIf="!user" color="accent" diameter="25">
+        <mat-spinner 
+          *ngIf="!user" 
+          color="accent" 
+          diameter="25">
         </mat-spinner>
         {{ user && 'Hello, ' + user.email }}
       </span>
-      <mat-icon class="navbar__logout-icon" (click)="logout()">power_settings_new</mat-icon>
+      <mat-icon 
+        class="navbar__logout-icon" 
+        (click)="logout()">
+        power_settings_new
+      </mat-icon>
     </div>
-    <button *ngIf="!isMenuActive" class="navbar__hamburger-btn" (click)="toggleMenu(menu)" mat-icon-button>
+    <button 
+      *ngIf="!isMenuActive" 
+      class="navbar__hamburger-btn" 
+      (click)="toggleMenu(menu)" 
+      mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
-    <button *ngIf="isMenuActive" class="navbar__hamburger-btn" (click)="toggleMenu(menu)" mat-icon-button>
+    <button 
+      *ngIf="isMenuActive" 
+      class="navbar__hamburger-btn" 
+      (click)="toggleMenu(menu)" 
+      mat-icon-button>
       <mat-icon>close</mat-icon>
     </button>
   </div>
@@ -33,7 +60,11 @@
 </div>
 <ng-template #confirmDeletion>
   <mat-dialog-content class="p-0">
-    <h2 mat-dialog-title class="text-center">Are you sure you want to delete your account permanently ?</h2>
+    <h2 
+      mat-dialog-title 
+      class="text-center">
+      Are you sure you want to delete your account permanently ?
+    </h2>
   </mat-dialog-content>
   <mat-dialog-actions>
     <div class="row w-100 pb-3">

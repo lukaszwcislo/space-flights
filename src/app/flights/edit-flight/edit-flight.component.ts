@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, TemplateRef, ElementRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class EditFlightComponent implements AfterViewInit{
   @ViewChild('flightForm') flightForm!: FlightFormComponent;
-  @ViewChild('confirmDeletion') confirmDeletion!: any;
+  @ViewChild('confirmDeletion') confirmDeletion!: TemplateRef<ElementRef<HTMLElement>>;
 
   constructor(
     private flightsService: FlightsService,

@@ -1,23 +1,42 @@
-<!-- <div class="container"> -->
-<div (keypress)="onKeypress($event)" class="row justify-content-center login-container">
+<div 
+  (keypress)="onKeypress($event)" 
+  class="row justify-content-center login-container">
   <div class="col-10 col-sm-6 col-xl-4 shadow login-content">
     <div class="logo-wrapper mb-2">
-      <img src="./assets/images/rocket_flights_logo.png" class="logo" alt="Logo">
-      rocket flights
+      <img 
+        src="./assets/images/rocket_flights_logo.png" 
+        class="logo" 
+        alt="Logo">
+        rocket flights
     </div>
-
     <h3 class="login-title">Login or register</h3>
     <mat-form-field class="d-block">
-      <input matInput placeholder="Email" required [(ngModel)]="credentials.email">
+      <input 
+        matInput 
+        placeholder="Email" 
+        required 
+        [(ngModel)]="credentials.email">
       <mat-error>Email is required</mat-error>
     </mat-form-field>
     <mat-form-field class="d-block">
-      <input matInput type="password" placeholder="Password" required [(ngModel)]="credentials.password">
+      <input 
+        matInput 
+        type="password" 
+        placeholder="Password" 
+        required 
+        [(ngModel)]="credentials.password">
       <mat-error>Password is required</mat-error>
     </mat-form-field>
-    <button #loginBtn mat-raised-button color="primary" (click)="login()">LOG IN</button>
+    <button 
+      #loginBtn 
+      mat-raised-button 
+      color="primary" 
+      (click)="login()">LOG IN</button>
     <p class="login-container__text">You don't have an account?</p>
-    <button routerLink="/registration" mat-raised-button color="accent" (click)="register()">REGISTER</button>
+    <button 
+      routerLink="/registration" 
+      mat-raised-button 
+      color="accent" 
+      (click)="register()">REGISTER</button>
   </div>
 </div>
-<!-- </div> -->

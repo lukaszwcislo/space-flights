@@ -3,7 +3,11 @@
     <div class="col-sm-8 mb-2">
       <mat-form-field color="accent">
         <mat-label>Code</mat-label>
-        <input matInput formControlName="code" #codeInput>
+        <input 
+          matInput 
+          formControlName="code" 
+          #codeInput
+        >
         <mat-error *ngIf="form.get('code')?.hasError('required')">Code is required</mat-error>
         <mat-error *ngIf="form.get('code')?.hasError('minlength')">Minimum length is 3 chars</mat-error>
         <mat-error *ngIf="form.get('code')?.hasError('maxlength')">Maximum length is 7 chars</mat-error>
@@ -15,14 +19,18 @@
     <div class="col-sm-4 mb-2">
       <mat-form-field color="accent">
         <mat-label>Origin</mat-label>
-        <input matInput formControlName="origin">
+        <input 
+          matInput 
+          formControlName="origin">
         <mat-error *ngIf="form.get('origin')?.hasError('required')">Origin is required</mat-error>
       </mat-form-field>
     </div>
     <div class="col-sm-4 mb-2">
       <mat-form-field color="accent">
         <mat-label>Destination</mat-label>
-        <input matInput formControlName="destination">
+        <input 
+          matInput 
+          formControlName="destination">
         <mat-error *ngIf="form.get('destination')?.hasError('required')">Destination is required</mat-error>
       </mat-form-field>
     </div>
@@ -47,31 +55,49 @@
     <div class="col-sm-8 mb-2">
       <mat-form-field color="accent">
         <mat-label>Addictional information</mat-label>
-        <textarea matInput formControlName="additionalInformatin"></textarea>
+        <textarea 
+          matInput 
+          formControlName="additionalInformatin"></textarea>
       </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <mat-checkbox color="accent" formControlName="withRocketDiscount">With rocket discount</mat-checkbox>
+      <mat-checkbox 
+        color="accent" 
+        formControlName="withRocketDiscount">With rocket discount</mat-checkbox>
     </div>
   </div>
-  <div formArrayName="crew" class="crew-container shadow mb-3" *ngFor="let crewMember of crew.controls;index as index">
+  <div
+    *ngFor="let crewMember of crew.controls;index as index"
+    formArrayName="crew" 
+    class="crew-container shadow mb-3">
     <div class="row crew-header">
       <div class="col d-flex justify-content-between">
         <span>Crew Member - {{ index + 1 }}</span>
-        <mat-icon class="remove-member-btn" (click)="removeCrewMember(index)">delete_forever</mat-icon>
+        <mat-icon
+          (click)="removeCrewMember(index)"
+          class="remove-member-btn">
+          delete_forever
+        </mat-icon>
       </div>
     </div>
-    <div class="row" [formGroupName]="index">
+    <div 
+      class="row" 
+      [formGroupName]="index">
       <div class="col-sm-5">
         <mat-form-field>
-          <input matInput formControlName="name" placeholder="Name">
+          <input 
+            matInput 
+            formControlName="name" 
+            placeholder="Name">
         </mat-form-field>
       </div>
       <div class="col-sm-4">
         <mat-form-field>
-          <mat-select formControlName="job" placeholder="Job">
+          <mat-select 
+            formControlName="job" 
+            placeholder="Job">
             <mat-option *ngFor="let job of jobs" [value]="job.value">{{ job.label }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -80,8 +106,9 @@
   </div>
   <div class="row">
     <div class="col">
-      <button mat-raised-button color="primary" (click)="addCrewMember()">Add crew member</button>
+      <button 
+        mat-raised-button color="primary" 
+        (click)="addCrewMember()">Add crew member</button>
     </div>
   </div>
 </form>
-<!-- <pre>{{ form.value | json }}</pre>  -->

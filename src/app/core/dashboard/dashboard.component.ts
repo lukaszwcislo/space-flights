@@ -17,9 +17,7 @@ export class DashboardComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private dialog: MatDialog
-  ) {
-   
-  }
+  ) {}
 
   public isSetDarkMode!: boolean;
   public isMenuActive = false;

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable, map } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Flight } from 'src/app/models/flight.model';
 import { AuthService } from './auth.service';
 
@@ -15,7 +14,6 @@ export class FlightsService {
 
   constructor(
     private db: AngularFireDatabase,
-    private http: HttpClient,
     private authService: AuthService) {
       this.authService.updateUserData$
         .subscribe(data => {

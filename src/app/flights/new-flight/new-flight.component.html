@@ -5,9 +5,16 @@
 <mat-dialog-actions>
   <div class="row">
     <div class="col">
-      <button mat-raised-button mat-dialog-close>Cancel</button>
-      <button mat-raised-button color="accent" [disabled]="flightForm.form.invalid"
-        (click)="createFlight()">Create</button>
+      <button 
+        mat-raised-button 
+        mat-dialog-close>Cancel</button>
+      <button 
+        mat-raised-button 
+        color="accent" 
+        [disabled]="flightForm.form.invalid"
+        (click)="createFlight()">
+        Create
+      </button>
     </div>
   </div>
 </mat-dialog-actions>
