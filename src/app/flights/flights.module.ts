@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { EditFlightComponent } from './edit-flight/edit-flight.component';
 import { FlightsRoutingModule } from './flights.routing.module';
+import { SlideInDirective } from '../core/directives/slide-in.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FlightsRoutingModule } from './flights.routing.module';
     NewFlightComponent,
     FlightFormComponent,
     FlightDetailsComponent,
-    EditFlightComponent
+    EditFlightComponent,
+    SlideInDirective
   ],
   imports: [
     CommonModule,

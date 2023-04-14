@@ -2,9 +2,12 @@
   *ngIf="(flights$ | async) as flights; else loadingSpinner" 
   class="row flights-container pt-2 mt-2 pt-sm-5 mt-sm-5">
   <div 
-    *ngFor="let flight of flights" 
+    *ngFor="let flight of flights; let i = index" 
     (click)="showDetails(flight)"
-    class="col-sm-6 col-md-6 col-lg-4" >
+    class="col-sm-6 col-md-6 col-lg-4"
+    appSlideIn 
+    [delay]="i == 0 ? 200 : i*120 + 200"
+    >
     <app-flight-card [flight]="flight"></app-flight-card>
   </div>
   <p

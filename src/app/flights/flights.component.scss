@@ -46,3 +46,14 @@
     }
   }
 }
+  
+[data-animate] {
+  transition: 1s;
+  opacity: 0;
+  transform: translateY(120px);
+
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
